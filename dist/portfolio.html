@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelleva Portfolio - Case Studies, Testimonials & Metrics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: #6d28d9;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #0da271;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Portfolio Hero */
+        .portfolio-hero {
+            padding: 180px 0 80px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .portfolio-hero:before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            opacity: 0.1;
+        }
+
+        .portfolio-hero:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
+            opacity: 0.1;
+        }
+
+        .portfolio-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Case Studies Section */
+        .portfolio-section {
+            padding: 100px 0;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .case-study-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .case-study-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .case-study-card:hover .case-study-img img {
+            transform: scale(1.1);
+        }
+
+        .case-study-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .case-study-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .case-study-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--gray-light);
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .case-stat {
+            text-align: center;
+        }
+
+        .case-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .case-stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .case-study-outcome {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .outcome-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: #f8fafc;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid var(--primary);
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Metrics Section */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .metric-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+        }
+
+        .metric-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .metric-label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .metric-trend {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .trend-up {
+            color: var(--accent);
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
+
+        /* CVs Section */
+        .cvs-section {
+            background: #f8fafc;
+        }
+
+        .cvs-container {
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        .cv-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .cv-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cv-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cv-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 30px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cv-basic-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .cv-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .cv-contact {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+        }
+
+        .cv-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .cv-section {
+            margin-bottom: 25px;
+        }
+
+        .cv-section h4 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray-light);
+        }
+
+        .cv-item {
+            margin-bottom: 15px;
+        }
+
+        .cv-item-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .cv-item-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .cv-item-desc {
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+
+        .cv-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .cv-skill {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .cv-download {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Back to Home */
+        .back-home {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .portfolio-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cv-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cv-img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .portfolio-hero {
+                padding: 150px 0 60px;
+            }
+            
+            .portfolio-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .portfolio-section {
+                padding: 80px 0;
+            }
+            
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cv-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .portfolio-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .portfolio-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .case-study-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial {
+                padding: 25px;
+            }
+        }
+
+        /* Animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 999;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Intel<span>leva</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="#case-studies">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero" id="portfolio-hero">
+        <div class="container">
+            <h1 class="fade-in">Our Impact & Results</h1>
+            <p class="fade-in">Explore our comprehensive portfolio showcasing successful partnerships, measurable outcomes, and client testimonials that demonstrate our commitment to delivering exceptional value.</p>
+            
+            <div class="portfolio-nav fade-in">
+                <a href="#case-studies" class="btn">Case Studies</a>
+                <a href="#testimonials" class="btn btn-secondary">Client Testimonials</a>
+                <a href="#metrics" class="btn btn-accent">Partnership Metrics</a>
+                <a href="#cvs" class="btn">Team CVs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="portfolio-section" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Detailed Case Studies</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray);">In-depth analysis of our most successful partnerships and events, showcasing our strategic approach and measurable outcomes.</p>
+            
+            <div class="case-studies-grid">
+                <!-- Case Study 1 -->
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">
+                        <img src="nig fintech.jpg" alt="Nigeria Fintech Forum 2025">
+                        <span class="case-study-tag">Education Technology</span>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Nigeria Fintech Forum 2025</h3>
+                        <p>Connecting education technology innovators with investors and policymakers to shape the future of learning across Africa.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">3</span>
+                                <span class="case-stat-label">Major Sponsors</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">500+</span>
+                                <span class="case-stat-label">Attendees</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">100M</span>
+                                <span class="case-stat-label">Sponsorship Value</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">92%</span>
+                                <span class="case-stat-label">Satisfaction Rate</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-outcome">
+                            <span class="outcome-title">Key Outcomes:</span>
+                            <ul style="padding-left: 20px; color: var(--gray);">
+                                <li>Secured long-term partnerships with 2 major tech companies</li>
+                                <li>Generated 45 qualified leads for future collaborations</li>
+                                <li>Increased post-event engagement by 40% across platforms</li>
+                                <li>Facilitated 3 pilot projects between startups and sponsors</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Youth Leadership Conference">
+                        <span class="case-study-tag">Youth Empowerment</span>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Youth Leadership Conference 2023</h3>
+                        <p>Empowering 300+ young leaders with skills, networks, and inspiration to drive positive change in their communities.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">3</span>
+                                <span class="case-stat-label">Strategic Partners</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">300+</span>
+                                <span class="case-stat-label">Participants</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">15</span>
+                                <span class="case-stat-label">Partnership Leads</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">85%</span>
+                                <span class="case-stat-label">Skill Improvement</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-outcome">
+                            <span class="outcome-title">Key Outcomes:</span>
+                            <ul style="padding-left: 20px; color: var(--gray);">
+                                <li>15 participants secured internships with partner organizations</li>
+                                <li>Launched 3 community projects funded by sponsors</li>
+                                <li>Generated media coverage reaching 50,000+ people</li>
+                                <li>Established ongoing mentorship program with partners</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Women in Tech Hackathon">
+                        <span class="case-study-tag">Technology & Innovation</span>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Women in Tech Hackathon 2025</h3>
+                        <p>A 48-hour innovation challenge bringing together women developers to solve real-world problems with technology.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">4</span>
+                                <span class="case-stat-label">Sponsorship Deals</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">150+</span>
+                                <span class="case-stat-label">Developers</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">12</span>
+                                <span class="case-stat-label">Projects Developed</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">1</span>
+                                <span class="case-stat-label">Incubated Project</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-outcome">
+                            <span class="outcome-title">Key Outcomes:</span>
+                            <ul style="padding-left: 20px; color: var(--gray);">
+                                <li>Winning project received 2M naira incubation support</li>
+                                <li>8 participants hired by sponsoring companies</li>
+                                <li>Generated 25+ innovative solutions to social challenges</li>
+                                <li>Increased sponsor brand visibility by 60% among target audience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 4 -->
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Digital Skills Workshop">
+                        <span class="case-study-tag">Capacity Building</span>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Digital Skills Workshop Series 2023</h3>
+                        <p>Quarterly workshop series training underserved youth in digital literacy, coding, and tech entrepreneurship.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">1</span>
+                                <span class="case-stat-label">Major Sponsor</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">200+</span>
+                                <span class="case-stat-label">Youth Trained</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">95%</span>
+                                <span class="case-stat-label">Satisfaction Rate</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">40%</span>
+                                <span class="case-stat-label">Employment Rate</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-outcome">
+                            <span class="outcome-title">Key Outcomes:</span>
+                            <ul style="padding-left: 20px; color: var(--gray);">
+                                <li>80+ participants secured tech-related employment within 3 months</li>
+                                <li>Sponsor recognized with CSR award for initiative</li>
+                                <li>Program expanded to 3 additional cities based on success</li>
+                                <li>Generated positive media coverage worth 1M in equivalent advertising</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 5 -->
+                <div class="case-study-card fade-in">
+                    <div class="case-study-img">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Community Impact Festival">
+                        <span class="case-study-tag">Community Engagement</span>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Community Impact Festival 2023</h3>
+                        <p>Annual festival bringing together local businesses, NGOs, and community members to drive social impact and economic growth.</p>
+                        
+                        <div class="case-study-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">5</span>
+                                <span class="case-stat-label">Local Business Partners</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">1000+</span>
+                                <span class="case-stat-label">Attendees</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">10M+</span>
+                                <span class="case-stat-label">Funds Raised</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">12</span>
+                                <span class="case-stat-label">Community Projects</span>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study-outcome">
+                            <span class="outcome-title">Key Outcomes:</span>
+                            <ul style="padding-left: 20px; color: var(--gray);">
+                                <li>Raised $10,000+ for 3 local community projects</li>
+                                <li>Increased foot traffic for partner businesses by 35%</li>
+                                <li>Created 12 ongoing partnerships between businesses and NGOs</li>
+                                <li>Generated economic impact of 100M+ in the local community</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="portfolio-section testimonials-section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray);">Hear directly from our partners and clients about their experiences working with Intelleva.</p>
+            
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial active" id="testimonial1">
+                    <div class="testimonial-text">
+                        "Working with Intelleva transformed our approach to partnerships. Their strategic insight helped us secure three major sponsors for our EdTech summit, resulting in 40% higher engagement than previous years. The team's attention to detail and commitment to our mission was exceptional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="David Johnson">
+                        </div>
+                        <div class="author-info">
+                            <h4>David Johnson</h4>
+                            <p>CEO, EdTech Innovations Africa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial" id="testimonial2">
+                    <div class="testimonial-text">
+                        "The Youth Leadership Conference organized by Intelleva exceeded all our expectations. Not only did they secure perfect partners aligned with our values, but their operational excellence ensured a seamless experience for 300+ participants. The 15 partnership leads generated have already resulted in two ongoing collaborations."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Sarah Williams">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Williams</h4>
+                            <p>Director, Youth Empowerment Initiative</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial" id="testimonial3">
+                    <div class="testimonial-text">
+                        "As a sponsor for the Women in Tech Hackathon, we were impressed with Intelleva's ability to connect us with exactly the right audience. The event resulted in us hiring 8 talented developers and provided exceptional brand visibility. Their commission-based model ensured everyone was invested in success."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Michael Chen">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>CTO, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial" id="testimonial4">
+                    <div class="testimonial-text">
+                        "Intelleva's partnership approach is both strategic and flexible. Their 5% commission model aligned perfectly with our funding realities while ensuring they were motivated to deliver results. The Digital Skills Workshop series they coordinated for us has become a flagship CSR program recognized with an industry award."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616c113a1c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Amina Okeke">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amina Okeke</h4>
+                            <p>CSR Manager, GlobalTech Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active" data-target="testimonial1"></div>
+                <div class="testimonial-dot" data-target="testimonial2"></div>
+                <div class="testimonial-dot" data-target="testimonial3"></div>
+                <div class="testimonial-dot" data-target="testimonial4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="portfolio-section" id="metrics">
+        <div class="container">
+            <h2 class="section-title">Partnership Outcome Metrics</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: var(--gray);">Quantifiable results that demonstrate our impact and the value we deliver to partners.</p>
+            
+            <div class="metrics-grid">
+                <!-- Metric 1 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label">Sponsors Secured</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 40% increase from 2025
+                    </div>
+                </div>
+                
+                <!-- Metric 2 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-value">2,150+</div>
+                    <div class="metric-label">Total Participants</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 65% growth YoY
+                    </div>
+                </div>
+                
+                <!-- Metric 3 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="metric-value">300M+</div>
+                    <div class="metric-label">Sponsorship Value</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 55% increase in value
+                    </div>
+                </div>
+                
+                <!-- Metric 4 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="metric-value">94%</div>
+                    <div class="metric-label">Client Satisfaction</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 12% improvement
+                    </div>
+                </div>
+                
+                <!-- Metric 5 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">Partnership Renewal Rate</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> Industry average: 60%
+                    </div>
+                </div>
+                
+                <!-- Metric 6 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Faster Sponsorship Secured</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> Reduced time-to-partner by 30%
+                    </div>
+                </div>
+                
+                <!-- Metric 7 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="metric-value">45+</div>
+                    <div class="metric-label">Ongoing Partnerships</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 25 new partnerships in 2023
+                    </div>
+                </div>
+                
+                <!-- Metric 8 -->
+                <div class="metric-card fade-in">
+                    <div class="metric-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Industry Awards</div>
+                    <div class="metric-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 2 awards in 2025
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CVs Section -->
+    <section class="portfolio-section cvs-section" id="cvs">
+        <div class="container">
+            <h2 class="section-title">Team Full CVs</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray);">Detailed professional backgrounds of our core team members, showcasing the expertise behind Intelleva's success.</p>
+            
+            <div class="cvs-container">
+                <!-- CV 1: Abiodun Lateef -->
+                <div class="cv-card fade-in">
+                    <div class="cv-header">
+                        <div class="cv-img">
+                            <img src="Abiodun Lateef.JPG" alt="Abiodun Lateef">
+                        </div>
+                        <div class="cv-basic-info">
+                            <h3>Abiodun Lateef </h3>
+                            <div class="cv-role">Head of Partnerships</div>
+                            <p>Strategic leader with 5+ years in partnership development, sponsorship sales, and event coordination. Expert in negotiation and ROI-driven partnership strategies.</p>
+                            <div class="cv-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Abiodun Lateef@intelleva.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+234 810 171 0773</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>linkedin.com/in/Abtechfullstack</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-content">
+                        <div class="cv-section">
+                            <h4>Professional Experience</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Head of Partnerships - Intelleva</div>
+                                <div class="cv-item-subtitle">2021 - Present</div>
+                                <div class="cv-item-desc">Lead partnership strategy, sponsor acquisition, and relationship management for all Intelleva initiatives. Oversee team of 3 partnership managers and coordinate with operations and digital teams.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Partnership Manager - Impact Connect Africa</div>
+                                <div class="cv-item-subtitle">2018 - 2021</div>
+                                <div class="cv-item-desc">Managed portfolio of 25+ corporate partners, securing 50M+ in sponsorship annually. Developed and executed partnership strategies for major events and initiatives.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Business Development Associate - TechEvents NG</div>
+                                <div class="cv-item-subtitle">2016 - 2018</div>
+                                <div class="cv-item-desc">Supported sponsorship sales for tech conferences and hackathons, contributing to 30% year-over-year growth in sponsorship revenue.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Key Skills</h4>
+                            <div class="cv-skills">
+                                <span class="cv-skill">Partnership Strategy</span>
+                                <span class="cv-skill">Sponsorship Sales</span>
+                                <span class="cv-skill">Negotiation</span>
+                                <span class="cv-skill">Stakeholder Management</span>
+                                <span class="cv-skill">Business Development</span>
+                                <span class="cv-skill">Event Coordination</span>
+                                <span class="cv-skill">ROI Analysis</span>
+                                <span class="cv-skill">Contract Management</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Education & Certifications</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">HND</div>
+                                <div class="cv-item-subtitle">Yabatech College Of Education</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-subtitle">Partnership Institute, 2020</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">FullStack Web dev</div>
+                                <div class="cv-item-subtitle">NUTM</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-download">
+                        <a href="#" class="btn"><i class="fas fa-download"></i> Download Full CV (PDF)</a>
+                    </div>
+                </div>
+                
+                <!-- CV 2: Abioye Mayowa Daniel -->
+                <div class="cv-card fade-in">
+                    <div class="cv-header">
+                        <div class="cv-img">
+                            <img src="Abioye.jpg">
+                        </div>
+                        <div class="cv-basic-info">
+                            <h3>Abioye Mayowa Daniel</h3>
+                            <div class="cv-role">Internal Control & Operations Specialist</div>
+                            <p>Ensures transparent and efficient partnership execution through process optimization, compliance management, and operational oversight.</p>
+                            <div class="cv-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>mayowa@intelleva.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+234 810 914 4175</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Lagos, Nigeria</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-content">
+                        <div class="cv-section">
+                            <h4>Professional Experience</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Internal Control Officer - Nigerian Sino Truck Limited</div>
+                                <div class="cv-item-subtitle">March 2023 - Present</div>
+                                <div class="cv-item-desc">Review and reconciliation of inventory, purchase orders, expenses, and job cards on ERP system. Conduct risk assessments and develop control policies and procedures.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Archive and Records Management Officer - Fidelity Bank PLC</div>
+                                <div class="cv-item-subtitle">September 2018 - March 2023</div>
+                                <div class="cv-item-desc">Oversaw transition from paper to electronic record keeping. Ensured compliance with records management policies and trained staff on proper procedures.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Personal Assistant to MD - Topchef Foods</div>
+                                <div class="cv-item-subtitle">August 2017 - August 2018</div>
+                                <div class="cv-item-desc">Managed executive schedules, coordinated meetings, handled correspondence, and supported daily operations for the Managing Director.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Key Skills</h4>
+                            <div class="cv-skills">
+                                <span class="cv-skill">ERP Systems</span>
+                                <span class="cv-skill">Internal Controls</span>
+                                <span class="cv-skill">Risk Management</span>
+                                <span class="cv-skill">Compliance</span>
+                                <span class="cv-skill">Microsoft Office</span>
+                                <span class="cv-skill">Process Optimization</span>
+                                <span class="cv-skill">Inventory Management</span>
+                                <span class="cv-skill">Policy Development</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Education & Certifications</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Bachelor of Science: Public Administration (In View)</div>
+                                <div class="cv-item-subtitle">University of Lagos, Expected 2024</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Higher National Diploma: Accounting</div>
+                                <div class="cv-item-subtitle">Osun State Polytechnic, Iree, 2019</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Associate Member, Nigeria Institute of Management (ANIM)</div>
+                                <div class="cv-item-subtitle">2021</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Associate, Chartered Institute of Personnel Management (ACIPM)</div>
+                                <div class="cv-item-subtitle">2022</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-download">
+                        <a href="#" class="btn"><i class="fas fa-download"></i> Download Full CV (PDF)</a>
+                    </div>
+                </div>
+                
+                <!-- CV 3: Oluwapelumi Jennifer Oyetade -->
+                <div class="cv-card fade-in">
+                    <div class="cv-header">
+                        <div class="cv-img">
+                            <img src="Oluwapelumi Oyetade (1).JPG" alt="Oluwapelumi Jennifer Oyetade">
+                        </div>
+                        <div class="cv-basic-info">
+                            <h3>Oluwapelumi Jennifer Oyetade</h3>
+                            <div class="cv-role">Digital & Product Engagement Lead</div>
+                            <p>Enhances partner visibility and engagement through digital storytelling, social media strategy, and user-centered product coordination.</p>
+                            <div class="cv-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>pelumi@intelleva.com</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+234 704 363 5381</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fab fa-behance"></i>
+                                    <span>behance.net/pelumioyetade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-content">
+                        <div class="cv-section">
+                            <h4>Professional Experience</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Product Design Intern - Etiva Tech</div>
+                                <div class="cv-item-subtitle">2023 - 2023</div>
+                                <div class="cv-item-desc">Designed real-life projects using Figma and Pinterest. Served as UI/UX Assistant Designer Trainer, providing feedback and teaching fundamental design principles.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Social Media Intern - The Bloom Africa</div>
+                                <div class="cv-item-subtitle">2025 - Present</div>
+                                <div class="cv-item-desc">Manage social media page with community of 1000+ girls. Grew follower base from 800 to 1,000+ within first 3 months through strategic content and engagement.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Student Trainee/Intern - BeMinT Program</div>
+                                <div class="cv-item-subtitle">2022 - 2023</div>
+                                <div class="cv-item-desc">Selected as beneficiary of German government program in Nigeria. Won overall best female student in cohort (4th overall among 300 students with 91.70%).</div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Key Projects</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Project Manager - Learn360</div>
+                                <div class="cv-item-desc">Led team of 60 members (including 20+ developers) to create an edutech solution providing free and equitable access to education.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Product Designer - Ooma Trust</div>
+                                <div class="cv-item-desc">Designed and prototyped website solving will fraud in Nigeria. Created design palette and pitched at hackathon with team.</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">Product Manager/Designer - Chat with Sheila</div>
+                                <div class="cv-item-desc">Designed and prototyped chatbot providing information about Nigerian University of Technology and Management. Led team of 10+ members.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Key Skills</h4>
+                            <div class="cv-skills">
+                                <span class="cv-skill">Project Management</span>
+                                <span class="cv-skill">UI/UX Design</span>
+                                <span class="cv-skill">Social Media Management</span>
+                                <span class="cv-skill">Content Creation</span>
+                                <span class="cv-skill">Prompt Engineering</span>
+                                <span class="cv-skill">Figma</span>
+                                <span class="cv-skill">Product Strategy</span>
+                                <span class="cv-skill">Team Leadership</span>
+                            </div>
+                        </div>
+                        
+                        <div class="cv-section">
+                            <h4>Education</h4>
+                            <div class="cv-item">
+                                <div class="cv-item-title">B.Sc. Computer Science (In Progress)</div>
+                                <div class="cv-item-subtitle">Nigerian University of Technology and Management, 2024 - 2028</div>
+                            </div>
+                            <div class="cv-item">
+                                <div class="cv-item-title">High School Diploma</div>
+                                <div class="cv-item-subtitle">Eva Adelaja Senior Girls Secondary School, Bariga, 2019 - 2022</div>
+                                <div class="cv-item-desc">Class Rank: 5/300</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-download">
+                        <a href="#" class="btn"><i class="fas fa-download"></i> Download Full CV (PDF)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="back-home">
+        <div class="container">
+            <a href="index.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Intelleva</h3>
+                    <p>Strategic partnership management firm specializing in sponsorship acquisition, event management, and partnership cultivation for impact-driven organizations.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Portfolio Sections</h3>
+                    <ul class="footer-links">
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#testimonials">Client Testimonials</a></li>
+                        <li><a href="#metrics">Partnership Metrics</a></li>
+                        <li><a href="#cvs">Team CVs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Main Website</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Lagos, Nigeria</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 08101710773</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> careernig24@gmail.com</p>
+                    <p><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> +234 810 171 0773</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Intelleva. All Rights Reserved. | Portfolio Version 2.0</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + "%";
+        });
+        
+        // Testimonial slider
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                // Remove active class from all testimonials and dots
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                testimonialDots.forEach(d => d.classList.remove('active'));
+                
+                // Add active class to clicked dot and corresponding testimonial
+                dot.classList.add('active');
+                testimonials[index].classList.add('active');
+            });
+        });
+        
+        // Auto-rotate testimonials
+        let currentTestimonial = 0;
+        function rotateTestimonials() {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            
+            testimonials[currentTestimonial].classList.add('active');
+            testimonialDots[currentTestimonial].classList.add('active');
+        }
+        
+        // Set interval for auto-rotation (every 8 seconds)
+        setInterval(rotateTestimonials, 8000);
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for fade-in
+        document.querySelectorAll('.case-study-card, .metric-card, .cv-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId.startsWith('#')) {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // CV download simulation
+        document.querySelectorAll('.cv-download .btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const teamMember = this.closest('.cv-card').querySelector('h3').textContent;
+                alert(`Downloading ${teamMember}'s CV...\n\nIn a real implementation, this would download a PDF file.`);
+                // Simulate download by redirecting to a PDF file (replace with actual file path)
+                window.location.href = `cvs/${teamMember.toLowerCase().replace(/\s+/g, '-')}.pdf`;
+            });
+        });
+    </script>
+</body>
+</html>
